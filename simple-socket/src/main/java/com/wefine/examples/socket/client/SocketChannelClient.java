@@ -13,7 +13,7 @@ public class SocketChannelClient {
         InetSocketAddress hostAddress = new InetSocketAddress("localhost", 8090);
         SocketChannel client = SocketChannel.open(hostAddress);
 
-        System.out.println("Client... started");
+        System.out.println("SocketClient... started");
         String threadName = Thread.currentThread().getName();
 
         // Send messages to server

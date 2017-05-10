@@ -6,13 +6,13 @@ import org.junit.Test;
 
 import java.io.IOException;
 
-public class ServerTest {
+public class ServerTest extends AbstractTest {
 
     @Test
     public void test() throws InterruptedException {
         Runnable server = () -> {
             try {
-                new SocketServer("localhost", 8090).startServer();
+                new SocketServer("localhost", SERVER_PORT).startServer();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -21,6 +21,6 @@ public class ServerTest {
         Thread t = new Thread(server);
         t.start();
 
-        Thread.sleep(2 * 60 * 1000);
+        Thread.sleep(5 * 60 * 1000);
     }
 }
