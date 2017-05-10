@@ -1,11 +1,11 @@
-package com.wefine.examples.socket;
+package com.wefine.examples.socket.client;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
 
-public class SocketClientExample {
+public class SocketChannelClient {
 
     public void startClient()
             throws IOException, InterruptedException {

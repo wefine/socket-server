@@ -1,4 +1,4 @@
-package com.wefine.examples.socket;
+package com.wefine.examples.socket.server;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -11,42 +11,18 @@ import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.util.*;
 
-public class SocketServerExample {
+public class SocketServer {
     private Selector selector;
     private Map<SocketChannel,List<byte[]>> dataMapper;
     private InetSocketAddress listenAddress;
 
-    public static void main(String[] args) throws Exception {
-
-        Runnable server = () -> {
-            try {
-                new SocketServerExample("localhost", 8090).startServer();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-        };
-
-        Runnable client = () -> {
-            try {
-                new SocketClientExample().startClient();
-            } catch (IOException | InterruptedException e) {
-                e.printStackTrace();
-            }
-        };
-
-        new Thread(server).start();
-        new Thread(client, "client-A").start();
-        new Thread(client, "client-B").start();
-    }
-
-    public SocketServerExample(String address, int port) throws IOException {
+    public SocketServer(String address, int port) throws IOException {
         listenAddress = new InetSocketAddress(address, port);
         dataMapper = new HashMap<>();
     }
 
     // create server channel
-    private void startServer() throws IOException {
+    public void startServer() throws IOException {
         this.selector = Selector.open();
         ServerSocketChannel serverChannel = ServerSocketChannel.open();
         serverChannel.configureBlocking(false);
