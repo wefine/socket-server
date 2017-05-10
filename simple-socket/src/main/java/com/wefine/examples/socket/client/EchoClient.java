@@ -11,7 +11,7 @@ import java.net.UnknownHostException;
 
 public class EchoClient {
     public static void main(String[] args) throws IOException {
-        String hostName = Constants.ECHO_SERVER_HOST;
+        String hostName = Constants.SERVER_HOST;
         int portNumber = Constants.ECHO_SERVER_PORT;
 
         try (Socket socket = new Socket(hostName, portNumber);

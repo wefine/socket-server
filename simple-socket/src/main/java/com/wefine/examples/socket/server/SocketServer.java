@@ -29,6 +29,7 @@ public class SocketServer {
 
         // retrieve server socket and bind to port
         serverChannel.socket().bind(listenAddress);
+        serverChannel.configureBlocking(false);
         serverChannel.register(this.selector, SelectionKey.OP_ACCEPT);
 
         System.out.println("Server started...");
