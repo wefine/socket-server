@@ -10,6 +10,7 @@
     <version>1.0</version>
     <modules>
         <module>simple-socket</module>
+        <module>nio2-socket</module>
     </modules>
 
     <dependencies>
